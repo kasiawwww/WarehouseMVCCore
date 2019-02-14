@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WarehouseMVCCore.Models;
 
 namespace WarehouseMVCCore.Data
 {
@@ -12,5 +13,6 @@ namespace WarehouseMVCCore.Data
             : base(options)
         {
         }
+        public virtual DbSet<WarehouseModel> Warehouse { get; set; } //tabela w bazie danych
     }
 }

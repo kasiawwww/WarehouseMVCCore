@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using WarehouseMVCCore.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WarehouseMVCCore.Models;
+using WarehouseMVCCore.Models.Repositories;
 
 namespace WarehouseMVCCore
 {
@@ -39,7 +41,7 @@ namespace WarehouseMVCCore
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddTransient<IWarehouseRepo, WarehouseRepo>(); //wszedzie gdzie podany jest interfejs bedzie wstawiony obiekt warehouse
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
